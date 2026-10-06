@@ -1,0 +1,356 @@
+[
+  {
+    "event_id": "stream-001",
+    "event_type": "POLICY_PUBLISHED",
+    "aggregate_type": "policy_permit",
+    "aggregate_id": "ne-policy-2026",
+    "occurred_at": "2026-01-02T09:00:00+08:00",
+    "version": 1,
+    "summary": "发布新能源车改装政策与车型许可（2026 年首版）",
+    "payload": {
+      "policy_id": "ne-policy-2026",
+      "effective_from": "2026-01-01",
+      "allowed_categories": ["camping_circuit", "suspension", "appearance_kit", "cosmetic", "power_battery", "driving_assistance"]
+    }
+  },
+  {
+    "event_id": "stream-002",
+    "event_type": "POLICY_PUBLISHED",
+    "aggregate_type": "policy_permit",
+    "aggregate_id": "ne-policy-2026",
+    "occurred_at": "2026-06-25T09:00:00+08:00",
+    "version": 2,
+    "summary": "修订政策：动力电池与驾驶辅助改动须先取得车企授权并通过安全门禁",
+    "payload": {
+      "policy_id": "ne-policy-2026",
+      "effective_from": "2026-07-01",
+      "allowed_categories": ["camping_circuit", "suspension", "appearance_kit", "cosmetic", "power_battery", "driving_assistance"],
+      "notes": "power_battery 与 driving_assistance 类别须先完成车企授权与安全门禁核验"
+    }
+  },
+  {
+    "event_id": "stream-003",
+    "event_type": "VEHICLE_REGISTERED",
+    "aggregate_type": "vehicle_profile",
+    "aggregate_id": "LNBSCU3H0PD123456",
+    "occurred_at": "2026-08-01T10:00:00+08:00",
+    "version": 1,
+    "summary": "登记车辆甲原厂配置与出厂软件版本",
+    "payload": {
+      "vin": "LNBSCU3H0PD123456",
+      "factory_config": "标准续航版，无外放电接口，普通悬架",
+      "software_version": "3.2.1"
+    }
+  },
+  {
+    "event_id": "stream-004",
+    "event_type": "PLAN_DECLARED",
+    "aggregate_type": "modification_plan",
+    "aggregate_id": "plan-001",
+    "occurred_at": "2026-08-10T14:00:00+08:00",
+    "version": 1,
+    "summary": "车主申报改装方案：外放电接口、露营悬架与外观套件",
+    "payload": {
+      "vin": "LNBSCU3H0PD123456",
+      "items": [
+        {"name": "动力蓄电池外放电接口", "category": "power_battery", "part_id": "part-001"},
+        {"name": "露营悬架套件", "category": "suspension", "part_id": "part-002"},
+        {"name": "外观套件", "category": "appearance_kit", "part_id": "part-003"}
+      ]
+    }
+  },
+  {
+    "event_id": "stream-005",
+    "event_type": "PLAN_PRECHECKED",
+    "aggregate_type": "modification_plan",
+    "aggregate_id": "plan-001",
+    "occurred_at": "2026-08-10T14:05:00+08:00",
+    "version": 2,
+    "summary": "前置条件核对：付款施工前告知车主仍缺车企授权与安全门禁",
+    "payload": {
+      "vin": "LNBSCU3H0PD123456",
+      "missing_prerequisites": ["oem_authorization:power_battery", "safety_gate:power_battery"]
+    }
+  },
+  {
+    "event_id": "stream-006",
+    "event_type": "PART_CERTIFIED",
+    "aggregate_type": "part",
+    "aggregate_id": "part-001",
+    "occurred_at": "2026-08-12T09:00:00+08:00",
+    "version": 1,
+    "summary": "登记外放电模块的零部件认证证书",
+    "payload": {"part_id": "part-001", "certificate_id": "cert-2026-0801", "category": "power_battery"}
+  },
+  {
+    "event_id": "stream-007",
+    "event_type": "PART_CERTIFIED",
+    "aggregate_type": "part",
+    "aggregate_id": "part-002",
+    "occurred_at": "2026-08-12T09:10:00+08:00",
+    "version": 1,
+    "summary": "登记露营悬架套件的零部件认证证书",
+    "payload": {"part_id": "part-002", "certificate_id": "cert-2026-0802", "category": "suspension"}
+  },
+  {
+    "event_id": "stream-008",
+    "event_type": "PART_CERTIFIED",
+    "aggregate_type": "part",
+    "aggregate_id": "part-003",
+    "occurred_at": "2026-08-12T09:20:00+08:00",
+    "version": 1,
+    "summary": "登记外观套件的零部件认证证书",
+    "payload": {"part_id": "part-003", "certificate_id": "cert-2026-0803", "category": "appearance_kit"}
+  },
+  {
+    "event_id": "stream-009",
+    "event_type": "OEM_AUTHORIZATION_RECORDED",
+    "aggregate_type": "oem_authorization",
+    "aggregate_id": "auth-001",
+    "occurred_at": "2026-08-15T10:00:00+08:00",
+    "version": 1,
+    "summary": "记录车企对车辆甲动力电池改动的三电授权",
+    "payload": {"vin": "LNBSCU3H0PD123456", "scope": "power_battery", "oem": "整车厂三电部门", "authorization_id": "oem-auth-7788"}
+  },
+  {
+    "event_id": "stream-010",
+    "event_type": "SAFETY_GATE_VERIFIED",
+    "aggregate_type": "oem_authorization",
+    "aggregate_id": "gate-001",
+    "occurred_at": "2026-08-15T11:00:00+08:00",
+    "version": 1,
+    "summary": "车辆甲动力电池改动通过安全门禁核验",
+    "payload": {"vin": "LNBSCU3H0PD123456", "scope": "power_battery", "gate_ref": "gate-check-5566"}
+  },
+  {
+    "event_id": "stream-011",
+    "event_type": "PART_BOUND",
+    "aggregate_type": "part",
+    "aggregate_id": "part-001",
+    "occurred_at": "2026-08-18T09:00:00+08:00",
+    "version": 2,
+    "summary": "外放电模块绑定至车辆甲",
+    "payload": {"part_id": "part-001", "vin": "LNBSCU3H0PD123456", "category": "power_battery"}
+  },
+  {
+    "event_id": "stream-012",
+    "event_type": "PART_BOUND",
+    "aggregate_type": "part",
+    "aggregate_id": "part-002",
+    "occurred_at": "2026-08-18T09:30:00+08:00",
+    "version": 2,
+    "summary": "露营悬架套件绑定至车辆甲",
+    "payload": {"part_id": "part-002", "vin": "LNBSCU3H0PD123456", "category": "suspension"}
+  },
+  {
+    "event_id": "stream-013",
+    "event_type": "PART_BOUND",
+    "aggregate_type": "part",
+    "aggregate_id": "part-003",
+    "occurred_at": "2026-08-18T10:00:00+08:00",
+    "version": 2,
+    "summary": "外观套件绑定至车辆甲",
+    "payload": {"part_id": "part-003", "vin": "LNBSCU3H0PD123456", "category": "appearance_kit"}
+  },
+  {
+    "event_id": "stream-014",
+    "event_type": "WORK_ORDER_ISSUED",
+    "aggregate_type": "work_order",
+    "aggregate_id": "wo-001",
+    "occurred_at": "2026-08-19T09:00:00+08:00",
+    "version": 1,
+    "summary": "工坊甲开立施工工单，含电路、悬架、外观三个步骤",
+    "payload": {
+      "work_order_id": "wo-001",
+      "vin": "LNBSCU3H0PD123456",
+      "workshop_id": "ws-01",
+      "step_ids": ["s1-circuit", "s2-suspension", "s3-appearance"],
+      "categories": ["power_battery", "suspension", "appearance_kit"],
+      "quote_cny": 26800
+    }
+  },
+  {
+    "event_id": "stream-015",
+    "event_type": "WORK_ATTESTED",
+    "aggregate_type": "work_order",
+    "aggregate_id": "wo-001",
+    "occurred_at": "2026-08-20T17:00:00+08:00",
+    "version": 2,
+    "summary": "工坊甲申报完成工单内全部步骤，技师持证上岗",
+    "payload": {
+      "work_order_id": "wo-001",
+      "workshop_id": "ws-01",
+      "step_ids": ["s1-circuit", "s2-suspension", "s3-appearance"],
+      "technician_id": "tech-1001",
+      "technician_qualification": "高压电工作业证 cert-hv-1001"
+    }
+  },
+  {
+    "event_id": "stream-016",
+    "event_type": "SOFTWARE_VERSION_RECORDED",
+    "aggregate_type": "vehicle_profile",
+    "aggregate_id": "LNBSCU3H0PD123456",
+    "occurred_at": "2026-08-20T17:30:00+08:00",
+    "version": 2,
+    "summary": "登记施工后悬架控制软件版本",
+    "payload": {"vin": "LNBSCU3H0PD123456", "software_version": "3.2.1+suspension-2.0.4"}
+  },
+  {
+    "event_id": "stream-017",
+    "event_type": "INSPECTION_SIGNED",
+    "aggregate_type": "inspection_decision",
+    "aggregate_id": "insp-001",
+    "occurred_at": "2026-08-22T10:00:00+08:00",
+    "version": 1,
+    "summary": "检测机构对车辆甲改装结果签署合格结论",
+    "payload": {"vin": "LNBSCU3H0PD123456", "signer_org": "安测机动车检测所", "conclusion": "合格"}
+  },
+  {
+    "event_id": "stream-018",
+    "event_type": "REGULATORY_APPROVED",
+    "aggregate_type": "modification_plan",
+    "aggregate_id": "plan-001",
+    "occurred_at": "2026-08-23T09:00:00+08:00",
+    "version": 3,
+    "summary": "监管部门批准改装方案 plan-001",
+    "payload": {"vin": "LNBSCU3H0PD123456", "authority": "市交通运输局", "approval_ref": "approval-2026-0811"}
+  },
+  {
+    "event_id": "stream-019",
+    "event_type": "REGISTRATION_CHANGED",
+    "aggregate_type": "registration_change",
+    "aggregate_id": "reg-001",
+    "occurred_at": "2026-08-24T09:00:00+08:00",
+    "version": 1,
+    "summary": "车管所完成车辆甲登记变更",
+    "payload": {"vin": "LNBSCU3H0PD123456", "authority": "市车管所", "change_ref": "reg-change-3322"}
+  },
+  {
+    "event_id": "stream-020",
+    "event_type": "INSURANCE_ENDORSED",
+    "aggregate_type": "insurance_endorsement",
+    "aggregate_id": "ins-001",
+    "occurred_at": "2026-08-25T09:00:00+08:00",
+    "version": 1,
+    "summary": "保险公司对车辆甲出具承保批改结论",
+    "payload": {"vin": "LNBSCU3H0PD123456", "signer_org": "华安财险", "endorsement_id": "endorse-9901", "conclusion": "同意承保"}
+  },
+  {
+    "event_id": "stream-021",
+    "event_type": "PASS_ACTIVATED",
+    "aggregate_type": "compliance_pass",
+    "aggregate_id": "pass-001",
+    "occurred_at": "2026-08-26T09:00:00+08:00",
+    "version": 1,
+    "summary": "车辆甲的改装合规通行证激活",
+    "payload": {"vin": "LNBSCU3H0PD123456", "pass_id": "pass-001", "plan_id": "plan-001"}
+  },
+  {
+    "event_id": "stream-022",
+    "event_type": "ACCIDENT_REPAIR_RECORDED",
+    "aggregate_type": "vehicle_profile",
+    "aggregate_id": "LNBSCU3H0PD123456",
+    "occurred_at": "2026-09-10T15:00:00+08:00",
+    "version": 3,
+    "summary": "登记车辆甲一次事故维修记录",
+    "payload": {"vin": "LNBSCU3H0PD123456", "repair_ref": "repair-2026-0910", "scope": "前保险杠更换"}
+  },
+  {
+    "event_id": "stream-023",
+    "event_type": "RESTORATION_RECORDED",
+    "aggregate_type": "vehicle_profile",
+    "aggregate_id": "LNBSCU3H0PD123456",
+    "occurred_at": "2026-09-15T10:00:00+08:00",
+    "version": 4,
+    "summary": "车辆甲外观套件复原，恢复原厂外观",
+    "payload": {"vin": "LNBSCU3H0PD123456", "restored_items": ["part-003"]}
+  },
+  {
+    "event_id": "stream-024",
+    "event_type": "PART_UNBOUND",
+    "aggregate_type": "part",
+    "aggregate_id": "part-003",
+    "occurred_at": "2026-09-15T10:30:00+08:00",
+    "version": 3,
+    "summary": "外观套件解除与车辆甲的绑定",
+    "payload": {"part_id": "part-003", "vin": "LNBSCU3H0PD123456"}
+  },
+  {
+    "event_id": "stream-025",
+    "event_type": "VEHICLE_REGISTERED",
+    "aggregate_type": "vehicle_profile",
+    "aggregate_id": "LNBSCU3H0PD654321",
+    "occurred_at": "2026-09-18T09:00:00+08:00",
+    "version": 1,
+    "summary": "登记车辆乙原厂配置",
+    "payload": {"vin": "LNBSCU3H0PD654321", "factory_config": "长续航版，普通悬架", "software_version": "3.4.0"}
+  },
+  {
+    "event_id": "stream-026",
+    "event_type": "PART_BOUND",
+    "aggregate_type": "part",
+    "aggregate_id": "part-003",
+    "occurred_at": "2026-09-21T09:00:00+08:00",
+    "version": 4,
+    "summary": "外观套件转装并绑定至车辆乙",
+    "payload": {"part_id": "part-003", "vin": "LNBSCU3H0PD654321", "category": "appearance_kit"}
+  },
+  {
+    "event_id": "stream-027",
+    "event_type": "INSPECTION_SIGNED",
+    "aggregate_type": "inspection_decision",
+    "aggregate_id": "insp-002",
+    "occurred_at": "2026-09-22T09:00:00+08:00",
+    "version": 1,
+    "summary": "转装后对车辆乙重新检验并签署合格结论",
+    "payload": {"vin": "LNBSCU3H0PD654321", "signer_org": "安测机动车检测所", "conclusion": "合格"}
+  },
+  {
+    "event_id": "stream-028",
+    "event_type": "INSURANCE_ENDORSED",
+    "aggregate_type": "insurance_endorsement",
+    "aggregate_id": "ins-002",
+    "occurred_at": "2026-09-23T09:00:00+08:00",
+    "version": 1,
+    "summary": "保险公司对车辆乙出具承保批改结论",
+    "payload": {"vin": "LNBSCU3H0PD654321", "signer_org": "华安财险", "endorsement_id": "endorse-9902", "conclusion": "同意承保"}
+  },
+  {
+    "event_id": "stream-029",
+    "event_type": "PASS_ACTIVATED",
+    "aggregate_type": "compliance_pass",
+    "aggregate_id": "pass-002",
+    "occurred_at": "2026-09-24T09:00:00+08:00",
+    "version": 1,
+    "summary": "车辆乙的改装合规通行证激活",
+    "payload": {"vin": "LNBSCU3H0PD654321", "pass_id": "pass-002"}
+  },
+  {
+    "event_id": "stream-030",
+    "event_type": "POLICY_PUBLISHED",
+    "aggregate_type": "policy_permit",
+    "aggregate_id": "ne-policy-2026",
+    "occurred_at": "2026-09-30T09:00:00+08:00",
+    "version": 3,
+    "summary": "新政策自 10 月 1 日起不再接受外观套件新增备案；已批准方案不受影响",
+    "payload": {
+      "policy_id": "ne-policy-2026",
+      "effective_from": "2026-10-01",
+      "allowed_categories": ["camping_circuit", "suspension", "cosmetic", "power_battery", "driving_assistance"],
+      "disallowed_categories": ["appearance_kit"]
+    }
+  },
+  {
+    "event_id": "stream-031",
+    "event_type": "PLAN_DECLARED",
+    "aggregate_type": "modification_plan",
+    "aggregate_id": "plan-002",
+    "occurred_at": "2026-10-02T10:00:00+08:00",
+    "version": 1,
+    "summary": "车主申报车身贴膜（普通美容），不收集任何行驶数据",
+    "payload": {
+      "vin": "LNBSCU3H0PD123456",
+      "items": [{"name": "车身改色贴膜", "category": "cosmetic"}]
+    }
+  }
+]

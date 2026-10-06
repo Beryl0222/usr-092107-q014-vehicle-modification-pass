@@ -19,19 +19,41 @@
     "event_type": {
       "type": "string",
       "enum": [
+        "VEHICLE_REGISTERED",
+        "POLICY_PUBLISHED",
         "PLAN_DECLARED",
+        "PLAN_PRECHECKED",
+        "PART_CERTIFIED",
         "PART_BOUND",
+        "PART_UNBOUND",
+        "OEM_AUTHORIZATION_RECORDED",
+        "SAFETY_GATE_VERIFIED",
+        "WORK_ORDER_ISSUED",
         "WORK_ATTESTED",
+        "SOFTWARE_VERSION_RECORDED",
         "INSPECTION_SIGNED",
-        "PASS_ACTIVATED"
+        "REGULATORY_APPROVED",
+        "REGISTRATION_CHANGED",
+        "INSURANCE_ENDORSED",
+        "ACCIDENT_REPAIR_RECORDED",
+        "RESTORATION_RECORDED",
+        "PASS_ACTIVATED",
+        "PASS_SUSPENDED",
+        "PASS_REVOKED"
       ]
     },
     "aggregate_type": {
       "type": "string",
       "enum": [
         "vehicle_profile",
+        "policy_permit",
         "modification_plan",
+        "part",
+        "oem_authorization",
+        "work_order",
         "inspection_decision",
+        "registration_change",
+        "insurance_endorsement",
         "compliance_pass"
       ]
     },
@@ -50,6 +72,9 @@
     "summary": {
       "type": "string",
       "minLength": 1
+    },
+    "payload": {
+      "type": "object"
     }
   },
   "additionalProperties": true
