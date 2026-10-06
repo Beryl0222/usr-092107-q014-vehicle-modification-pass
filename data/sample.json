@@ -1,9 +1,14 @@
 {
   "event_id": "sample-014-001",
-  "event_type": "PLAN_DECLARED",
+  "event_type": "FACTORY_CONFIG_RECORDED",
   "aggregate_type": "vehicle_profile",
   "aggregate_id": "vehicle_modification_pass-001",
   "occurred_at": "2026-09-20T18:00:00+08:00",
   "version": 1,
-  "summary": "登记汽车改装合规通行证的首条领域记录"
+  "summary": "以车辆识别码登记汽车改装合规通行证的首条原厂配置记录",
+  "payload": {
+    "vin": "LSW9Z001NE2026001",
+    "energy_type": "bev",
+    "factory_domains": ["traction_battery", "driving_assistance"]
+  }
 }

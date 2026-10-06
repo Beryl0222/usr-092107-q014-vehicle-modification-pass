@@ -19,20 +19,51 @@
     "event_type": {
       "type": "string",
       "enum": [
+        "FACTORY_CONFIG_RECORDED",
+        "POLICY_REGIME_ENACTED",
+        "MODEL_PERMISSION_EFFECTIVE",
         "PLAN_DECLARED",
+        "POLICY_SNAPSHOT_PINNED",
+        "PRECONDITIONS_PUBLISHED",
+        "PART_CERTIFICATE_RECORDED",
         "PART_BOUND",
+        "PART_UNBOUND",
+        "TECHNICIAN_QUALIFIED",
+        "OEM_AUTHORIZATION_GRANTED",
+        "WORK_ORDER_OPENED",
+        "SAFETY_GATE_PASSED",
         "WORK_ATTESTED",
+        "SOFTWARE_VERSION_RECORDED",
         "INSPECTION_SIGNED",
-        "PASS_ACTIVATED"
+        "REGULATORY_APPROVAL_GRANTED",
+        "REGISTRATION_CHANGED",
+        "INSURANCE_ENDORSEMENT_SIGNED",
+        "PASS_ACTIVATED",
+        "PASS_REVOKED",
+        "ACCIDENT_REPAIR_RECORDED",
+        "RESTORATION_RECORDED",
+        "RECORD_CORRECTED"
       ]
     },
     "aggregate_type": {
       "type": "string",
       "enum": [
         "vehicle_profile",
+        "policy_regime",
+        "model_permission",
         "modification_plan",
+        "part_record",
+        "technician_profile",
+        "oem_authorization",
+        "work_order",
+        "safety_gate",
         "inspection_decision",
-        "compliance_pass"
+        "regulatory_approval",
+        "registration_change",
+        "insurance_decision",
+        "compliance_pass",
+        "accident_repair",
+        "restoration_record"
       ]
     },
     "aggregate_id": {
@@ -50,6 +81,20 @@
     "summary": {
       "type": "string",
       "minLength": 1
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date",
+      "description": "政策与车型许可的生效日期；按生效日期匹配，不溯及已批准方案。"
+    },
+    "supersedes_event_id": {
+      "type": "string",
+      "minLength": 1,
+    "description": "RECORD_CORRECTED 必填，指向被更正的原记录；原记录不原地改写。"
+    },
+    "payload": {
+      "type": "object",
+      "description": "业务数据，遵循数据最小化；商业报价与个人行程不进入本账本。"
     }
   },
   "additionalProperties": true

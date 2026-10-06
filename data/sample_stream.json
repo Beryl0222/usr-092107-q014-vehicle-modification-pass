@@ -1,0 +1,397 @@
+{
+  "stream_id": "sample-stream-vin-lsw9z001",
+  "description": "新能源车加装露营电路（接入动力电池）、悬架与外观套件的完整合规履历；事件按发生时间排列。",
+  "records": [
+    {
+      "event_id": "evt-001",
+      "event_type": "FACTORY_CONFIG_RECORDED",
+      "aggregate_type": "vehicle_profile",
+      "aggregate_id": "vin-LSW9Z001NE2026001",
+      "occurred_at": "2026-09-20T10:00:00+08:00",
+      "version": 1,
+      "summary": "以车辆识别码登记原厂配置：纯电平台、标称电池容量与辅助驾驶硬件版本",
+      "payload": {
+        "vin": "LSW9Z001NE2026001",
+        "energy_type": "bev",
+        "factory_model": "试点 X-Pro 2026",
+        "factory_domains": ["traction_battery", "driving_assistance"]
+      }
+    },
+    {
+      "event_id": "evt-002",
+      "event_type": "POLICY_REGIME_ENACTED",
+      "aggregate_type": "policy_regime",
+      "aggregate_id": "regime-pilot",
+      "occurred_at": "2026-02-25T09:00:00+08:00",
+      "version": 1,
+      "effective_date": "2026-03-01",
+      "summary": "试点城市汽车改装管理规则第一版生效",
+      "payload": {"scope": ["campers", "suspension", "appearance"]}
+    },
+    {
+      "event_id": "evt-003",
+      "event_type": "MODEL_PERMISSION_EFFECTIVE",
+      "aggregate_type": "model_permission",
+      "aggregate_id": "perm-xpro-2026",
+      "occurred_at": "2026-04-28T09:00:00+08:00",
+      "version": 1,
+      "effective_date": "2026-05-01",
+      "summary": "试点 X-Pro 2026 取得露营取电与悬架改装车型许可",
+      "payload": {"model": "试点 X-Pro 2026", "allowed_domains": ["traction_battery", "suspension", "cosmetic_appearance"]}
+    },
+    {
+      "event_id": "evt-004",
+      "event_type": "PLAN_DECLARED",
+      "aggregate_type": "modification_plan",
+      "aggregate_id": "plan-2026-0427",
+      "occurred_at": "2026-09-25T14:00:00+08:00",
+      "version": 1,
+      "summary": "车主申报露营取电电路、升高悬架与外观包围方案",
+      "payload": {
+        "vin": "LSW9Z001NE2026001",
+        "domains": ["traction_battery", "suspension", "cosmetic_appearance"],
+        "registration_required": true
+      }
+    },
+    {
+      "event_id": "evt-005",
+      "event_type": "POLICY_SNAPSHOT_PINNED",
+      "aggregate_type": "modification_plan",
+      "aggregate_id": "plan-2026-0427",
+      "occurred_at": "2026-09-25T14:05:00+08:00",
+      "version": 2,
+      "summary": "钉选申报日有效的政策与车型许可版本，后续规则变化不溯及本方案",
+      "payload": {
+        "plan_id": "plan-2026-0427",
+        "policy_regime_id": "regime-pilot",
+        "policy_version": 1,
+        "model_permission_id": "perm-xpro-2026",
+        "permission_version": 1
+      }
+    },
+    {
+      "event_id": "evt-006",
+      "event_type": "PRECONDITIONS_PUBLISHED",
+      "aggregate_type": "modification_plan",
+      "aggregate_id": "plan-2026-0427",
+      "occurred_at": "2026-09-25T14:10:00+08:00",
+      "version": 3,
+      "summary": "付款施工前首次预检：缺少车企动力电池授权，暂不能开工",
+      "payload": {
+        "plan_id": "plan-2026-0427",
+        "domains": ["traction_battery", "suspension", "cosmetic_appearance"],
+        "missing": ["oem_authorization"],
+        "satisfied": ["policy_snapshot", "model_permission"]
+      }
+    },
+    {
+      "event_id": "evt-007",
+      "event_type": "TECHNICIAN_QUALIFIED",
+      "aggregate_type": "technician_profile",
+      "aggregate_id": "tech-018",
+      "occurred_at": "2026-08-10T09:00:00+08:00",
+      "version": 1,
+      "summary": "高压电工技师资质在有效期内，覆盖露营取电施工",
+      "payload": {"technician_id": "tech-018", "domains": ["traction_battery", "campers"], "valid_until": "2027-08-09"}
+    },
+    {
+      "event_id": "evt-008",
+      "event_type": "PART_CERTIFICATE_RECORDED",
+      "aggregate_type": "part_record",
+      "aggregate_id": "part-camp-pdu-001",
+      "occurred_at": "2026-09-26T11:00:00+08:00",
+      "version": 1,
+      "summary": "露营配电单元部件认证登记",
+      "payload": {"part_id": "part-camp-pdu-001", "certificate_no": "CCC-2026-CAMP-7741", "domain": "traction_battery"}
+    },
+    {
+      "event_id": "evt-009",
+      "event_type": "PART_CERTIFICATE_RECORDED",
+      "aggregate_type": "part_record",
+      "aggregate_id": "part-sus-001",
+      "occurred_at": "2026-09-26T11:05:00+08:00",
+      "version": 1,
+      "summary": "升高悬架套件部件认证登记",
+      "payload": {"part_id": "part-sus-001", "certificate_no": "CCC-2026-SUS-3310", "domain": "suspension"}
+    },
+    {
+      "event_id": "evt-010",
+      "event_type": "PART_CERTIFICATE_RECORDED",
+      "aggregate_type": "part_record",
+      "aggregate_id": "part-body-001",
+      "occurred_at": "2026-09-26T11:10:00+08:00",
+      "version": 1,
+      "summary": "外观包围套件部件认证登记",
+      "payload": {"part_id": "part-body-001", "certificate_no": "CCC-2026-BODY-5520", "domain": "cosmetic_appearance"}
+    },
+    {
+      "event_id": "evt-011",
+      "event_type": "OEM_AUTHORIZATION_GRANTED",
+      "aggregate_type": "oem_authorization",
+      "aggregate_id": "oa-plan-0427",
+      "occurred_at": "2026-09-27T15:00:00+08:00",
+      "version": 1,
+      "summary": "车企就动力电池取电改造授予三电授权，限定本车 VIN 与指定软件范围",
+      "payload": {
+        "plan_id": "plan-2026-0427",
+        "vin": "LSW9Z001NE2026001",
+        "domains": ["traction_battery"],
+        "scope": "auxiliary_power_takeoff"
+      }
+    },
+    {
+      "event_id": "evt-012",
+      "event_type": "PRECONDITIONS_PUBLISHED",
+      "aggregate_type": "modification_plan",
+      "aggregate_id": "plan-2026-0427",
+      "occurred_at": "2026-09-27T16:00:00+08:00",
+      "version": 4,
+      "summary": "授权、部件证书与技师资质齐备，前置条件全部满足",
+      "payload": {
+        "plan_id": "plan-2026-0427",
+        "domains": ["traction_battery", "suspension", "cosmetic_appearance"],
+        "missing": [],
+        "satisfied": ["policy_snapshot", "model_permission", "oem_authorization", "part_certificate", "technician_qualification"]
+      }
+    },
+    {
+      "event_id": "evt-013",
+      "event_type": "PART_BOUND",
+      "aggregate_type": "part_record",
+      "aggregate_id": "part-camp-pdu-001",
+      "occurred_at": "2026-09-28T09:30:00+08:00",
+      "version": 2,
+      "summary": "露营配电单元绑定至本车 VIN",
+      "payload": {"part_id": "part-camp-pdu-001", "vehicle_id": "vin-LSW9Z001NE2026001"}
+    },
+    {
+      "event_id": "evt-014",
+      "event_type": "PART_BOUND",
+      "aggregate_type": "part_record",
+      "aggregate_id": "part-sus-001",
+      "occurred_at": "2026-09-28T09:35:00+08:00",
+      "version": 2,
+      "summary": "悬架套件绑定至本车 VIN",
+      "payload": {"part_id": "part-sus-001", "vehicle_id": "vin-LSW9Z001NE2026001"}
+    },
+    {
+      "event_id": "evt-015",
+      "event_type": "PART_BOUND",
+      "aggregate_type": "part_record",
+      "aggregate_id": "part-body-001",
+      "occurred_at": "2026-09-28T09:40:00+08:00",
+      "version": 2,
+      "summary": "外观包围绑定至本车 VIN",
+      "payload": {"part_id": "part-body-001", "vehicle_id": "vin-LSW9Z001NE2026001"}
+    },
+    {
+      "event_id": "evt-016",
+      "event_type": "WORK_ORDER_OPENED",
+      "aggregate_type": "work_order",
+      "aggregate_id": "wo-0427",
+      "occurred_at": "2026-09-29T08:30:00+08:00",
+      "version": 1,
+      "summary": "承接工坊开工，工单归属工坊 workshop-07",
+      "payload": {"workshop_id": "workshop-07", "plan_id": "plan-2026-0427", "vin": "LSW9Z001NE2026001"}
+    },
+    {
+      "event_id": "evt-017",
+      "event_type": "SAFETY_GATE_PASSED",
+      "aggregate_type": "safety_gate",
+      "aggregate_id": "sg-plan-0427",
+      "occurred_at": "2026-09-29T08:45:00+08:00",
+      "version": 1,
+      "summary": "高压下电与互锁安全门禁通过，允许动力电池取电施工",
+      "payload": {"plan_id": "plan-2026-0427", "domain": "traction_battery", "gate": "hv_lockout"}
+    },
+    {
+      "event_id": "evt-018",
+      "event_type": "WORK_ATTESTED",
+      "aggregate_type": "work_order",
+      "aggregate_id": "wo-0427",
+      "occurred_at": "2026-09-29T17:00:00+08:00",
+      "version": 2,
+      "summary": "工坊申报完成露营取电电路安装",
+      "payload": {
+        "workshop_id": "workshop-07",
+        "work_order_id": "wo-0427",
+        "technician_id": "tech-018",
+        "plan_id": "plan-2026-0427",
+        "domain": "traction_battery",
+        "step": "install_camp_power"
+      }
+    },
+    {
+      "event_id": "evt-019",
+      "event_type": "WORK_ATTESTED",
+      "aggregate_type": "work_order",
+      "aggregate_id": "wo-0427",
+      "occurred_at": "2026-09-30T17:00:00+08:00",
+      "version": 3,
+      "summary": "工坊申报完成悬架升高安装",
+      "payload": {
+        "workshop_id": "workshop-07",
+        "work_order_id": "wo-0427",
+        "technician_id": "tech-018",
+        "plan_id": "plan-2026-0427",
+        "domain": "suspension",
+        "step": "lift_kit_install"
+      }
+    },
+    {
+      "event_id": "evt-020",
+      "event_type": "WORK_ATTESTED",
+      "aggregate_type": "work_order",
+      "aggregate_id": "wo-0427",
+      "occurred_at": "2026-10-01T11:00:00+08:00",
+      "version": 4,
+      "summary": "工坊申报完成外观包围安装，不涉及行驶数据采集",
+      "payload": {
+        "workshop_id": "workshop-07",
+        "work_order_id": "wo-0427",
+        "technician_id": "tech-018",
+        "plan_id": "plan-2026-0427",
+        "domain": "cosmetic_appearance",
+        "step": "body_kit_install",
+        "collects_driving_data": false
+      }
+    },
+    {
+      "event_id": "evt-021",
+      "event_type": "SOFTWARE_VERSION_RECORDED",
+      "aggregate_type": "work_order",
+      "aggregate_id": "wo-0427",
+      "occurred_at": "2026-10-01T11:30:00+08:00",
+      "version": 5,
+      "summary": "记录网关取电控制软件版本，处于车企授权范围内",
+      "payload": {"plan_id": "plan-2026-0427", "component": "power_gateway", "software_version": "oem-pg-4.2.1-authorized"}
+    },
+    {
+      "event_id": "evt-022",
+      "event_type": "INSPECTION_SIGNED",
+      "aggregate_type": "inspection_decision",
+      "aggregate_id": "id-plan-0427",
+      "occurred_at": "2026-10-02T15:00:00+08:00",
+      "version": 1,
+      "summary": "检测机构签署独立结论：高压绝缘、灯光与尺寸参数合格",
+      "payload": {
+        "plan_id": "plan-2026-0427",
+        "signer_org_id": "inspection-center-03",
+        "result": "pass",
+        "scope": "modification"
+      }
+    },
+    {
+      "event_id": "evt-023",
+      "event_type": "REGULATORY_APPROVAL_GRANTED",
+      "aggregate_type": "regulatory_approval",
+      "aggregate_id": "ra-plan-0427",
+      "occurred_at": "2026-10-03T10:00:00+08:00",
+      "version": 1,
+      "summary": "监管部门按钉选的政策快照批准本方案",
+      "payload": {"plan_id": "plan-2026-0427", "signer_org_id": "pilot-regulator", "decision": "approved"}
+    },
+    {
+      "event_id": "evt-024",
+      "event_type": "REGISTRATION_CHANGED",
+      "aggregate_type": "registration_change",
+      "aggregate_id": "rc-plan-0427",
+      "occurred_at": "2026-10-04T11:00:00+08:00",
+      "version": 1,
+      "summary": "车管所完成外形尺寸与备注项登记变更",
+      "payload": {"plan_id": "plan-2026-0427", "vin": "LSW9Z001NE2026001", "register": "vehicle-management-office-01"}
+    },
+    {
+      "event_id": "evt-025",
+      "event_type": "INSURANCE_ENDORSEMENT_SIGNED",
+      "aggregate_type": "insurance_decision",
+      "aggregate_id": "in-plan-0427",
+      "occurred_at": "2026-10-05T16:00:00+08:00",
+      "version": 1,
+      "summary": "保险机构独立核保并完成保单批改承保",
+      "payload": {"plan_id": "plan-2026-0427", "signer_org_id": "insurer-12", "decision": "endorsed"}
+    },
+    {
+      "event_id": "evt-026",
+      "event_type": "PASS_ACTIVATED",
+      "aggregate_type": "compliance_pass",
+      "aggregate_id": "pass-vin-001",
+      "occurred_at": "2026-10-06T09:00:00+08:00",
+      "version": 1,
+      "summary": "合规通行证生效，车辆可合法上路",
+      "payload": {"plan_id": "plan-2026-0427", "vin": "LSW9Z001NE2026001", "status": "active"}
+    },
+    {
+      "event_id": "evt-027",
+      "event_type": "ACCIDENT_REPAIR_RECORDED",
+      "aggregate_type": "accident_repair",
+      "aggregate_id": "ar-vin-001-01",
+      "occurred_at": "2026-10-12T18:00:00+08:00",
+      "version": 1,
+      "summary": "追尾事故后外观包围与配电单元检修记录入册",
+      "payload": {"vin": "LSW9Z001NE2026001", "plan_id": "plan-2026-0427", "affected_parts": ["part-body-001", "part-camp-pdu-001"]}
+    },
+    {
+      "event_id": "evt-028",
+      "event_type": "PART_UNBOUND",
+      "aggregate_type": "part_record",
+      "aggregate_id": "part-camp-pdu-001",
+      "occurred_at": "2026-10-20T10:00:00+08:00",
+      "version": 3,
+      "summary": "车主要求将露营配电单元转装至另一辆车，先解除与本车的绑定",
+      "payload": {"part_id": "part-camp-pdu-001", "vehicle_id": "vin-LSW9Z001NE2026001"}
+    },
+    {
+      "event_id": "evt-029",
+      "event_type": "INSPECTION_SIGNED",
+      "aggregate_type": "inspection_decision",
+      "aggregate_id": "id-reinsp-camp-001",
+      "occurred_at": "2026-10-21T10:00:00+08:00",
+      "version": 1,
+      "summary": "转装前对二手配电单元重新检验，结论合格",
+      "payload": {"part_id": "part-camp-pdu-001", "signer_org_id": "inspection-center-03", "result": "pass", "scope": "part_reinspection"}
+    },
+    {
+      "event_id": "evt-030",
+      "event_type": "PART_BOUND",
+      "aggregate_type": "part_record",
+      "aggregate_id": "part-camp-pdu-001",
+      "occurred_at": "2026-10-22T09:00:00+08:00",
+      "version": 4,
+      "summary": "配电单元重新检验后绑定至第二辆车",
+      "payload": {"part_id": "part-camp-pdu-001", "vehicle_id": "vin-LSW9Z002NE2026002"}
+    },
+    {
+      "event_id": "evt-031",
+      "event_type": "POLICY_REGIME_ENACTED",
+      "aggregate_type": "policy_regime",
+      "aggregate_id": "regime-pilot",
+      "occurred_at": "2026-10-28T09:00:00+08:00",
+      "version": 2,
+      "effective_date": "2026-11-01",
+      "summary": "管理规则第二版生效；已批准方案仍按钉选的第一版评判",
+      "payload": {"scope": ["campers", "suspension", "appearance"], "change_note": "不溯及既往"}
+    },
+    {
+      "event_id": "evt-032",
+      "event_type": "RESTORATION_RECORDED",
+      "aggregate_type": "restoration_record",
+      "aggregate_id": "rr-plan-0427",
+      "occurred_at": "2026-11-05T15:00:00+08:00",
+      "version": 1,
+      "summary": "悬架复原至原厂状态并复检（摘要待更正：缺少复检日期）",
+      "payload": {"plan_id": "plan-2026-0427", "vin": "LSW9Z001NE2026001", "restored_domains": ["suspension"]}
+    },
+    {
+      "event_id": "evt-033",
+      "event_type": "RECORD_CORRECTED",
+      "aggregate_type": "restoration_record",
+      "aggregate_id": "rr-plan-0427",
+      "occurred_at": "2026-11-05T16:00:00+08:00",
+      "version": 2,
+      "summary": "更正复原记录：补充复检合格日期 2026-11-05，原记录保留不改写",
+      "supersedes_event_id": "evt-032",
+      "payload": {"reinspection_result": "pass", "reinspected_on": "2026-11-05"}
+    }
+  ]
+}
